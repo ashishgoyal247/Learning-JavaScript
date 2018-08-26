@@ -137,6 +137,35 @@ Objects(including functions) use Copy by reference i.e the new object points to 
 'this':
 Value of this depends on how and from where the function is invoked.
 
+Using == makes code difficult to debug and causes unexpexted errors as it coerces the value and changes the type as shown below:
+
+Number(undefined) = NaN
+Number(null) = 0
+Number(false) = 0
+false == 0 //true
+null == 0 //false
+null < 1 //true
+"" == 0 //true
+"" == false //true
+
+Use === to check the type and then compare:
+3 === 3 //true
+3 === "3" //false
+
+Boolean(undefined) //false
+Boolean(false) //false
+Boolean("") //false
+
+All these things that imply lack of existence they convert to false.
+
 Whenever a function is invoked which is attached to an object this keyword becomes the object that method is sitting inside of. JS engines check the function is attached to an object. So it assigns this to the object which contains that function.
 
 JS doesn't have function overloading.
+
+While defining a function without a name in a new line enclose it within () so to trick tje syntax parser
+
+All objects in JavaScript(includeing functions) have a prototype property. This property is simply a reference to another object called proto.
+
+Reflection:
+JS objects can look at itslef, listing and changing its properties and methods. In other words you can check if a given property is attached to object or it is there in prototype chain.
+Check understanding extend.js
