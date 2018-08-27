@@ -168,4 +168,31 @@ All objects in JavaScript(includeing functions) have a prototype property. This 
 
 Reflection:
 JS objects can look at itslef, listing and changing its properties and methods. In other words you can check if a given property is attached to object or it is there in prototype chain.
+
+Extend:
+Extend is the underscore.js method which is used to include all properties of other object into a specific object.
+_.extend(a, b, c) //Here all properties of b and c will be included in a
 Check understanding extend.js
+
+
+BUILDIING OBJECT
+
+'new' in JS:
+Whenever we use new in JS it calls creates an empty object.
+After that function(constructor) is invoked. THis invoked function makes an execution context and this. Here this points to empty object created by new. In case nothing is returned in constructor it returns the object pinted by this.
+
+Setting the prototype:
+Every function in JS have prototype. Unless function is used as constructor function prototype is never used. Function prototype is used by the new operator. Function prototype is not the prototype for the function, it's for the object created using that function.
+
+WHile making new object property and variavles are defined in constructor but methods are defines using Prototype because anything inside function takes memory. So if it was inside the function if we create 1000 object 1000 methods taking diff memory spaces will be created. But if we put it in prototype it will just take space at one place which can be accessed by all objects.
+Checkout understanding_object_building.js
+
+Usually functions which are used as constructors have name with first alphabet capital so to avoid the confusion and make sure new keyword is used before invoking them.
+
+Note:
+Array is an object and each of its item is a named value-pair so each item becomes a new property. So avoid using for in while iterating array as it will show any prototype added to array because in syntax iterates down the prototype.
+
+Arrow functions cannot be used as constructors.
+
+Pure Prototypal Inheritance:
+Object.create() creates an empty object with prototype pointing to whatever is passed inside Objec.create().
